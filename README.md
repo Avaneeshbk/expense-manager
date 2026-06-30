@@ -1,3 +1,15 @@
+---
+title: Expense Manager Bot
+emoji: 💸
+colorFrom: emerald
+colorTo: green
+sdk: docker
+app_port: 8080
+pinned: false
+license: mit
+short_description: Voice-first Telegram expense manager
+---
+
 # Expense Manager — Voice-First Telegram Bot + Web Dashboard
 
 A zero-cost, multi-user expense manager that lives in Telegram. Send a voice
