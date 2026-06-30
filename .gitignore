@@ -1,0 +1,50 @@
+# env
+.env
+.env.local
+.env.*.local
+
+# deps
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# build
+dist/
+build/
+.next/
+out/
+
+# os
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# logs
+logs/
+*.log
+
+# supabase
+supabase/.branches
+supabase/.temp
+
+# dashboard
+dashboard/node_modules/
+dashboard/.next/
+dashboard/dist/
+
+# render
+render.yaml
+
+# dashboard
+dashboard/node_modules/
+dashboard/.next/
+dashboard/dist/
+dashboard/.vercel/
+dashboard/.env.local

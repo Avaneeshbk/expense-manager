@@ -1,0 +1,104 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+/* ---------- Design tokens ---------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme */
+    --bg:           250 250 250;   /* #fafafa */
+    --surface:      255 255 255;   /* #ffffff */
+    --surface-2:    244 244 245;   /* #f4f4f5 */
+    --border:       228 228 231;   /* #e4e4e7 */
+    --border-strong:212 212 216;   /* #d4d4d8 */
+    --text:         24 24 27;      /* #18181b */
+    --text-2:       82 82 91;      /* #52525b */
+    --text-3:       113 113 122;   /* #71717a */
+    --accent:       16 185 129;    /* emerald-500 */
+    --accent-2:     5 150 105;     /* emerald-600 */
+  }
+
+  .dark {
+    /* Dark theme — not pure black; slightly lifted for a designed feel */
+    --bg:           9 9 11;        /* #09090b */
+    --surface:      24 24 27;      /* #18181b */
+    --surface-2:    39 39 42;      /* #27272a */
+    --border:       39 39 42;      /* #27272a */
+    --border-strong:63 63 70;      /* #3f3f46 */
+    --text:         244 244 245;   /* #f4f4f5 */
+    --text-2:       161 161 170;   /* #a1a1aa */
+    --text-3:       113 113 122;   /* #71717a */
+    --accent:       52 211 153;    /* emerald-400 — slightly brighter on dark */
+    --accent-2:     16 185 129;    /* emerald-500 */
+  }
+
+  /* Reset to a more designed-feeling default */
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    font-feature-settings: "cv11", "ss01", "ss03";
+    /* Inter variant: "ss01" enables the single-storey 'a' & 'g' for that Linear-like look */
+  }
+
+  /* Tabular figures for all numbers (looks proper in tables) */
+  .tabular, .num, [data-num] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "cv11" 1;
+  }
+
+  /* Monospace numbers for amounts */
+  .num-mono {
+    @apply font-mono tabular;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgb(var(--accent) / 0.2);
+    color: rgb(var(--text));
+  }
+
+  /* Scrollbars (subtle) */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--border-strong)); border-radius: 5px; border: 2px solid rgb(var(--bg)); }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--text-3)); }
+}
+
+@layer components {
+  /* A small "eyebrow" label used above numbers and section titles */
+  .label {
+    @apply text-label uppercase text-text-3;
+  }
+
+  /* Card surface */
+  .card {
+    @apply bg-surface border border-border rounded-lg;
+  }
+
+  /* Hover row */
+  .row-hover {
+    @apply hover:bg-surface-2 transition-colors duration-150;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgb(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}

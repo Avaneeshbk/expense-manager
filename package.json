@@ -1,0 +1,23 @@
+{
+  "name": "expense-manager",
+  "version": "0.1.0",
+  "description": "Voice-first Telegram expense manager (free stack).",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "lint": "echo \"(no linter configured)\" && exit 0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.21.0",
+    "node-cron": "^3.0.3",
+    "sharp": "^0.35.2"
+  }
+}
