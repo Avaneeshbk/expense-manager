@@ -1,0 +1,16 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.DS_Store
+.env
+.env.*
+!.env.example
+dashboard
+README.md
+RENDER_DEPLOY.md
+SETUP.md
+supabase
+*.log
+.vscode
+.idea

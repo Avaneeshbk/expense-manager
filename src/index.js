@@ -87,7 +87,10 @@ cron.schedule("* * * * *", async () => {
   }
 }, { timezone: config.reminders.timezone });
 
-// --- Self-ping (keeps Render free tier warm) --------------------------------
+// --- Self-ping ---------------------------------------------------------------
+// Kept for compatibility if you ever move back to a Render Web Service.
+// On Fly.io the bot stays warm naturally, so this is a no-op when
+// RENDER_EXTERNAL_URL isn't set.
 if (process.env.RENDER_EXTERNAL_URL) {
   setInterval(() => {
     fetch(process.env.RENDER_EXTERNAL_URL).catch(() => {});

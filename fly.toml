@@ -1,0 +1,28 @@
+# Fly.io config for the expense-manager Telegram bot.
+# Free tier: 3 shared VMs (256MB RAM each), always-on.
+# Docs: https://fly.io/docs/reference/configuration/
+
+app = "expense-manager-bot"          # change if already taken on Fly
+primary_region = "sin"               # Singapore — closest to India
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  # Anything NOT secret goes here. Secrets go via `fly secrets set`.
+  NODE_ENV = "production"
+  GEMINI_MODEL = "gemini-1.5-flash"
+  DEFAULT_REMINDER_HOUR = "21"
+  DEFAULT_REMINDER_MIN = "0"
+  TIMEZONE = "Asia/Kolkata"
+  # OCR_MODEL optional; bot will fall back if unset
+
+# Free-tier sized VM. 256MB is plenty for a long-polling Telegram bot.
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1
+
+# No [services] block — bot doesn't serve HTTP, it's an outbound client.
+# Fly will still route health checks to nothing, which is fine; bot stays up.
